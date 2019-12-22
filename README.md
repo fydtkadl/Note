@@ -156,8 +156,8 @@ PHP Markdown Extra는 깃허브 다음으로 많이 사용되는 확장 문법�
 * 워드프레스에서도 지원하기 시작했습니다 : 칼킨님의 [워드프레스 마크다운(Markdown) 문법 설명](http://blog.kalkin7.com/2014/02/05/wordpress-markdown-quick-reference-for-koreans/)
 
 <br/>
-*※ 이 블로그도 마크다운 문서로 작성되었습니다. .md와 .html로 작성된 두 문서를 첨부했으니 비교해 보시기 바랍니다.*  
-  
+*※ 이 블로그도 마크다운 문서로 작성되었습니다. .md와 .html로 작성된 두 문서를 첨부했으니 비교해 보시기 바랍니다.*
+<br> 
 
 **References**  
 [https://github.com/biospin/BigBio/blob/master/reference/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4.md](https://github.com/biospin/BigBio/blob/master/reference/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4.md)
