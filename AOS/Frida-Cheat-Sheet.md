@@ -1,4 +1,4 @@
-## **Frida Cheat Sheet**
+# **Frida Cheat Sheet**
 
 ### **Python Building**
 

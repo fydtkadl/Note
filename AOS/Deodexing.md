@@ -1,4 +1,4 @@
-## **Deodexing**
+# **Deodexing**
 
 odex를 dex로 재컴파일한 다음에 .apk에 classes.dex를 넣는 것을 deodexing이라고 한다.
 

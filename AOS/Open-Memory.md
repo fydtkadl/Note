@@ -1,4 +1,4 @@
-## **Open Memory**
+# **Open Memory**
 
 ZN3art7DexFile10OpenMemoryEPKhmRKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEjPNS_6MemMapEPKNS_10OatDexFileEPS9에서 애플리케이션의 .dex 파일을 로딩하는데 해당 부분을 후킹하면 원본 .dex 파일을 얻을 수 있다.
 
