@@ -3,7 +3,7 @@
 ### **Site**
 <https://github.com/Gallopsled/pwntools>
 
-### *Install*
+### **Install**
 
 ```
 apt-get update
