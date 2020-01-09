@@ -67,7 +67,7 @@ return 0;
 4. Android.mk 파일 생성
 
 $ cat > Android.mk
-
+```
 # 빌드가 작업되는 위치를 지정
 
 # $(call my-dir): 현재 위치를 반환
@@ -97,7 +97,7 @@ LOCAL_SRC_FILES := hello.c
 # 라이브러리 생성 시에는 BUILD_SHARED_LIBRARY, BUILD_STATIC_LIBRARY 등을 사용
 
 include $(BUILD_EXECUTABLE)
-
+```
 
 
 5. ndk-build로 빌드
