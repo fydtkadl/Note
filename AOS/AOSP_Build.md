@@ -65,3 +65,10 @@ fastboot flash vendor out/target/product/<device>/vendor.img
 fastboot flash userdata out/target/product/<device>/userdata.img
 결과
 원래는 ROM Name이라는 항목이 없는데, 그 부분을 추가하였고, 저의 이름이 들어가있는거를 볼 수 있습니다.
+
+
+#[java Heap error날 경우]
+Android source code compile error: “Try increasing heap size with java option '-Xmx<size>'”
+$export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
+$./prebuilts/sdk/tools/jack-admin kill-server
+$./prebuilts/sdk/tools/jack-admin start-server
