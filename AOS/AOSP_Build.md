@@ -71,3 +71,4 @@ fastboot flash userdata out/target/product/<device>/userdata.img
 Android source code compile error: “Try increasing heap size with java option '-Xmx<size>'”
 $export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
 $./prebuilts/sdk/tools/jack-admin kill-server
+$./prebuilts/sdk/tools/jack-admin start-server
