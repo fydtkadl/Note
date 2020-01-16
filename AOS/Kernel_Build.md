@@ -36,8 +36,6 @@ $ git checkout remotes/origin/android-msm-bullhead-3.10-nougat-mr1 -b remotes/or
 build.sh 파일 생성 후 실행하여 Kernel Build
 
 ```
-#/bin/bash
-export PATH=$PATH:`CROSS_COMPLIER PATH`
 export ARCH=arm64
 export CROSS_COMPILE=aarch64-linux-android-
 
