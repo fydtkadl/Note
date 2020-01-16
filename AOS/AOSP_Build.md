@@ -15,8 +15,8 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
 
 디렉토리 
-mkdir android-7.1.1
-cd android-7.1.1
+mkdir android-7.1.2
+cd android-7.1.2
 
 git 연결
 git config --global user.name "Your Name"
@@ -31,7 +31,6 @@ repo init -u https://android.googlesource.com/platform/manifest -b android-7.1.2
 다운로드
 repo sync -j4
 
-repo sync
 
 https://developers.google.com/android/drivers
 
