@@ -1,33 +1,51 @@
+# **Kernel Build**
 
-필요 패키지 설치
-$ sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install openjdk-8-jdk git git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip make liblz4-tool libncurses5 python repo android-tools-adb android-tools-fastboot chrpath gawk texinfo libsdl1.2-dev whiptail diffstat cpio libssl-dev lzip -y
+## **Required Package Installation**
 
+```
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install openjdk-8-jdk git git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip make liblz4-tool libncurses5 python repo android-tools-adb android-tools-fastboot chrpath gawk texinfo libsdl1.2-dev whiptail diffstat cpio libssl-dev lzip -y
+```
 
-[Tool Chain]
+## **CROSS COMPILER DOWNLOAD**
 
-git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
+1. https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 에서 git clone을 통해 다운로드  
+1. ./bin 경로를 PATH에 추가 
 
-git branch -a 명령으로 확인
+```
+$ git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
+$ cd aarch64-linux-android-4.9
+$ git branch -a | grep nougat-mr1-release
+  remotes/origin/nougat-mr1-release
+$ git checkout remotes/origin/nougat-mr1-release -b remotes/origin/nougat-mr1-release
+$ cd ./bin
+$ export PATH=$PATH:`pwd`
+```
 
-git checkout [branch명] 
+## **Build Kernel**
 
-[Build]
+1. https://android.googlesource.com/kernel/ 에 접속하여 원하는 Kernel Source 다운도르
+1. 
 
-git clone https://android.googlesource.com/kernel/msm
+```
+$ git clone https://android.googlesource.com/kernel/msm
+$ git branch -a | grep bullhead-3.10-nougat-mr1
+  remotes/origin/android-msm-bullhead-3.10-nougat-mr1
+$ git checkout remotes/origin/android-msm-bullhead-3.10-nougat-mr1 -b remotes/origin/android-msm-bullhead-3.10-nougat-mr1
+```
 
-git branch -a 명령으로 확인
+build.sh 파일 생성 후 실행하여 Kernel Build
 
-git checkout [branch명]
-
-
-cd hikey-linaro
+```
+#/bin/bash
+export PATH=$PATH:`CROSS_COMPLIER PATH`
 export ARCH=arm64
 export CROSS_COMPILE=aarch64-linux-android-
-make hikey_defconfig
+
+make bullhead_defconfig
 make
+```
 
-
-[flash]
+## **Flash**
 
 
 여기서 .img 받은 다음에 
