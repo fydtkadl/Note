@@ -39,7 +39,6 @@ build.sh 파일 생성 후 실행하여 Kernel Build
 #!/bin/bash
 export ARCH=arm64
 export CROSS_COMPILE=aarch64-linux-android-
-
 make bullhead_defconfig
 make
 ```
