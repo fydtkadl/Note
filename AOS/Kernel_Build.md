@@ -23,8 +23,8 @@ $ export PATH=$PATH:`pwd`
 
 ## **Build Kernel**
 
-1. https://android.googlesource.com/kernel/ 에 접속하여 원하는 Kernel Source 다운도르
-1. 
+1. https://android.googlesource.com/kernel/ 에 접속하여 원하는 Kernel Source clone
+1. 원하는 branch 생성
 
 ```
 $ git clone https://android.googlesource.com/kernel/msm
@@ -45,19 +45,69 @@ make
 
 ## **Flash**
 
-
-여기서 .img 받은 다음에 
-<https://developers.google.com/android/images>
-
-mkbootimg 설치
-
-<https://github.com/osm0sis/mkbootimg>  
-
-mkboot로 받은 boot.img unpack 후 
-arch/arm64/boot/Image.gz-dtb 이미지로 바꾸고 repack
-
-fastboot flash boot newboot.img로 flashing 후 부팅하면 성공!
-
-
+1. mkbootimg 설치 후 PATH 설정
+    * <https://github.com/osm0sis/mkbootimg>  
+1. Factory image 다운로드
+    * <https://developers.google.com/android/images>
+1. boot.img unpacking
+    ```
+    $ mkboot boot.img boot_dir
+    Unpack & decompress boot.img to boot_dir
+    kernel         : kernel
+    ramdisk        : ramdisk
+    page size      : 4096
+    kernel size    : 10817210
+    ramdisk size   : 1506510
+    base           : 0x00000000
+    kernel offset  : 0x00008000
+    ramdisk offset : 0x02000000
+    tags offset    : 0x01e00000
+    cmd line       : console=ttyHSL0,115200,n8 androidboot.hardware=bullhead boot_cpus=0-5 lpm_levels.sleep_disabled=1 msm_poweroff.download_mode=0 buildvariant=user
+    ramdisk is gzip format.
+    Unpack completed.
+    ```
+1. kernel의 arch/arm64/boot/ 디렉토리에 Image.gz-dtb를 boot_dir/kernel로 변경
+    ```
+    $ ls
+    dts  Image  Image.gz  Image.gz-dtb  install.sh  Makefile  wrapper
+    $ ls
+    img_info  kernel <- ramdisk  ramdisk.packed
+    ```
+1. 새로운 newboot.img 생성
+    ```
+    $ mkboot boot_dir newboot.img
+    mkbootimg from boot_dir/img_info.
+    kernel         : kernel
+    ramdisk        : new_ramdisk
+    page size      : 4096
+    kernel size    : 10817210
+    ramdisk size   : 1506565
+    base           : 0x00000000
+    kernel offset  : 0x00008000
+    ramdisk offset : 0x02000000
+    tags offset    : 0x01e00000
+    cmd line       : console=ttyHSL0,115200,n8 androidboot.hardware=bullhead boot_cpus=0-5 lpm_levels.sleep_disabled=1 msm_poweroff.download_mode=0 buildvariant=user
+    ramdisk is gzip format.
+    Kernel size: 10817210, new ramdisk size: 1506565, newboot.img: 12328960.
+    newboot.img has been created.
+    ...
+    ```
+1. fastboot flash boot newboot.img로 Flash
+    ```
+    $ sudo fastboot flash boot newboot.img 
+    target reported max download size of 536870912 bytes
+    sending 'boot' (12040 KB)...
+    OKAY [  1.053s]
+    writing 'boot'...
+    OKAY [  0.106s]
+    finished. total time: 1.160s
+    ```
+1. dmesg로 변조된 start_kernel() 함수 확인
+    ```
+    $ sudo adb shell
+    bullhead:/ $ dmesg | grep Modulated
+    [    0.000000] Modulated Kernel!!!!!
+    ```
+    
 **References**  
 <https://source.android.com/setup/build/building-kernels-deprecated>
