@@ -94,3 +94,6 @@
     bullhead:/data/local/tmp $ getenforce
     Permissive
     ```
+
+**References**  
+<http://android.blogs.rice.edu/2017/05/16/adding-a-system-call-to-aarch64-linux/>
