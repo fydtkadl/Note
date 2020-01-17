@@ -50,6 +50,7 @@ make
 1. Factory image 다운로드
     * <https://developers.google.com/android/images>
 1. boot.img unpacking
+
     ```
     $ mkboot boot.img boot_dir
     Unpack & decompress boot.img to boot_dir
@@ -67,6 +68,7 @@ make
     Unpack completed.
     ```
 1. kernel의 arch/arm64/boot/ 디렉토리에 Image.gz-dtb를 boot_dir/kernel로 변경
+
     ```
     $ ls
     dts  Image  Image.gz  Image.gz-dtb  install.sh  Makefile  wrapper
@@ -74,6 +76,7 @@ make
     img_info  kernel <- ramdisk  ramdisk.packed
     ```
 1. 새로운 newboot.img 생성
+
     ```
     $ mkboot boot_dir newboot.img
     mkbootimg from boot_dir/img_info.
@@ -93,6 +96,7 @@ make
     ...
     ```
 1. fastboot flash boot newboot.img로 Flash
+
     ```
     $ sudo fastboot flash boot newboot.img 
     target reported max download size of 536870912 bytes
@@ -103,11 +107,12 @@ make
     finished. total time: 1.160s
     ```
 1. dmesg로 변조된 start_kernel() 함수 확인
+
     ```
     $ sudo adb shell
     bullhead:/ $ dmesg | grep Modulated
     [    0.000000] Modulated Kernel!!!!!
     ```
-    
+
 **References**  
 <https://source.android.com/setup/build/building-kernels-deprecated>
