@@ -46,9 +46,13 @@ make
 ## **Flash**
 
 1. mkbootimg 설치 후 PATH 설정
+
     * <https://github.com/osm0sis/mkbootimg>  
+
 1. Factory image 다운로드
+
     * <https://developers.google.com/android/images>
+
 1. boot.img unpacking
 
     ```
@@ -75,6 +79,7 @@ make
     $ ls
     img_info  kernel <- ramdisk  ramdisk.packed
     ```
+
 1. 새로운 newboot.img 생성
 
     ```
@@ -95,6 +100,7 @@ make
     newboot.img has been created.
     ...
     ```
+
 1. fastboot flash boot newboot.img로 Flash
 
     ```
