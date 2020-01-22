@@ -1,9 +1,11 @@
 1. ndk 다운로드
 1. /android-ndk-r20b/prebuilt/android-arm64/gdbserver를 android에 push
-1. chmod로 권한을 부여한 후 gdbserver :1234 --attach <pid_of_process>
-1. adb forward tcp:5039 tcp:5039
+1. chmod로 권한을 부여한 후 gdbserver 실행
+    * ./gdbserver :1234 --attach <pid_of_process>
+1. adb 포트포워딩
+    * adb forward tcp:5039 tcp:5039
 1. /android-ndk-r20b/prebuilt/linux-x86_64/bin/gdb 실행 후 attach 
-    * target remote :1234
+    * (gdb) target remote :1234
 ```
 bs@bs-virtual-machine:~/Desktop/android/android-ndk-r20b/prebuilt/linux-x86_64/bin$ ./gdb
 GNU gdb (GDB) 7.11
