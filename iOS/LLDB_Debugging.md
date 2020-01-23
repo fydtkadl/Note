@@ -111,9 +111,5 @@ iOS 8.4 버전으로 넘어오면서 현재 GDB가 정상 동작하지 않는다
 
 (lldb) register read
 
-
-
-출처: https://hyunmini.tistory.com/71 [Hyunmini]
-
 **References**  
 <https://hyunmini.tistory.com/71>
