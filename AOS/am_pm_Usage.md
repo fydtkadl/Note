@@ -1,4 +1,4 @@
-# **am Usage**
+# **am usage**
 
 1. 액티비티 실행하는 방법
     * am start -a android.intent.action.MAIN -n 패키지명/액티비티 경로명
@@ -11,7 +11,7 @@
     * ex) adb shell am broadcast -a android.accounts.LOGIN_ACCOUNTS_CHANGED
 
  
-# **pm Usage**
+# **pm usage**
 
 pm (package manager)
 1. 설치된 앱 확인
