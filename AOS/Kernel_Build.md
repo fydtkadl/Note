@@ -47,7 +47,7 @@ make
 
 1. mkbootimg 설치 후 PATH 설정
 
-    * <https://github.com/osm0sis/mkbootimg>  
+    * <https://github.com/xiaolu/mkbootimg_tools.git>  
 
 1. Factory image 다운로드
 
