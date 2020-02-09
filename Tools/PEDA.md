@@ -10,7 +10,7 @@ echo "source ~/peda/peda.py" >> ~/.gdbinit
 echo "DONE! debug your program with gdb and enjoy"
 ```
 
-### **Heap Analysis Plugin**
+## **Heap Analysis Plugin**
 
 <https://github.com/scwuaptx/Pwngdb>
 
