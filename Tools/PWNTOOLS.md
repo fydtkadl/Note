@@ -1,9 +1,9 @@
 # **PWNTOOLS**
 
-### **Site**
+## **Site**
 <https://github.com/Gallopsled/pwntools>
 
-### **Install**
+## **Install**
 
 ```
 apt-get update
@@ -12,9 +12,9 @@ pip install --upgrade pip
 pip install --upgrade pwntools
 ```
 
-### **Usage**
+## **Usage**
 
-#### GDB
+### GDB
 
 ```python
 p.process('a.out')
