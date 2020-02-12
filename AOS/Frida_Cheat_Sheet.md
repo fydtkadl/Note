@@ -134,10 +134,16 @@ function hook(){
 
 ```js
 // Constructor Hook
-Java.use('java.lang.reflect.Method').invoke.overload('java.lang.Object', '[Ljava.lang.Object;', 'boolean').implementation = function(a,b,c) {
-    console.log('hooked!', a, b, c);
-    return this.invoke(a,b,c);
-};
+Java.perform(function() { 
+    console.log();
+
+    var ZXVpnAdd$SecuwayServiceConnection = Java.use('com.spo.npa_util.ZXVpnAdd$SecuwayServiceConnection');
+
+    ZXVpnAdd$SecuwayServiceConnection.$init.overload('com.spo.npa_util.ZXVpnAdd').implementation = function(arg0) {
+        console.log("arg0 : "+arg0);
+        return this.$init(arg0);
+    };
+});
 ```
 
 ### **Bytes Control**
