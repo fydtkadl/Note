@@ -31,6 +31,21 @@ if __name__=="__main__":
     sys.stdin.read()
 ```
 
+### **SSL Pinning Bypass**
+
+```js
+// SSL Pinning Bypass 
+Java.perform(function() {
+    var array_list = Java.use("java.util.ArrayList");
+
+    var ApiClient = Java.use("com.android.org.conscrypt.TrustManagerImpl");
+    ApiClient.checkTrustedRecursive.implementation = function(arg1,arg2,arg3,arg4,arg5,arg6) {
+        var k = array_list.$new();
+        return k;
+    }
+});
+```
+
 ### **Enumerate Loaded Class**
 
 ```js
