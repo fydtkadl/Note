@@ -1,6 +1,7 @@
 # **GDB Debugging**
 
 1. ndk 다운로드
+    * https://developer.android.com/ndk/downloads
 1. /android-ndk-r20b/prebuilt/android-arm64/gdbserver를 android에 push
 1. chmod로 권한을 부여한 후 gdbserver 실행
     * ./gdbserver :1234 --attach <pid_of_process>
